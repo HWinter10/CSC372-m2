@@ -24,6 +24,7 @@ public class BankBalance {
         JButton depositButton = new JButton("Deposit");
         JButton withdrawButton = new JButton("Withdraw");
         JTextField amountField = new JTextField(20);
+        JLabel balanceLabel = new JLabel("Balance: $");
 
         // GUI Object Layout
         panel.setLayout(null);
@@ -31,12 +32,14 @@ public class BankBalance {
         panel.add(depositButton);
         panel.add(withdrawButton);
         panel.add(amountField);
+        panel.add(balanceLabel);
         
         // GUI Object sizes (left, down, size, width) 
         balanceButton.setBounds(250, 80, 80, 25);
         depositButton.setBounds(40, 80, 80, 25);
         withdrawButton.setBounds(140, 80, 90, 25);
-        amountField.setBounds(35, 20, 300, 25);
+        amountField.setBounds(40, 20, 300, 25);
+        balanceLabel.setBounds(40, 120, 300, 25);
         
         
        
@@ -57,7 +60,8 @@ public class BankBalance {
         
         balanceButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		amountField.setText(String.valueOf(balance));
+        		amountField.setText("");
+        		balanceLabel.setText("Balance: $" + String.format("%.2f", balance));
         	}
         });
     }
